@@ -9,7 +9,7 @@
  * @param  {string} name the name of the app
  * @returns {void}
  */
-function startApp(name){
+function startApp(name) {
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
   process.stdin.on('data', onDataReceived);
@@ -34,13 +34,15 @@ function startApp(name){
  * @returns {void}
  */
 function onDataReceived(text) {
-  if (text.trim() === 'quit'||text.trim()=== 'exit') {
+  if (text.trim() === 'quit' || text.trim() === 'exit') {
     quit();
   }
-  else if(text.trim() === 'hello'){
+  else if (text.trim() === 'hello') {
     hello();
+  } else if (text.trim() === 'help') {
+    help();
   }
-  else{
+  else {
     unknownCommand(text);
   }
 }
@@ -53,8 +55,8 @@ function onDataReceived(text) {
  * @param  {string} c the text received
  * @returns {void}
  */
-function unknownCommand(c){
-  console.log('unknown command: "'+c.trim()+'"')
+function unknownCommand(c) {
+  console.log('unknown command: "' + c.trim() + '"')
 }
 
 
@@ -63,8 +65,11 @@ function unknownCommand(c){
  *
  * @returns {void}
  */
-function hello(){
+function hello() {
   console.log('hello!')
+}
+function help() {
+  console.log('hello\tquit\texit');
 }
 
 
@@ -73,7 +78,7 @@ function hello(){
  *
  * @returns {void}
  */
-function quit(){
+function quit() {
   console.log('Quitting now, goodbye!')
   process.exit();
 }
