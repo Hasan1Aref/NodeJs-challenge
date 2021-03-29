@@ -68,6 +68,7 @@ function unknownCommand(c) {
 function hello() {
   console.log('hello!')
 }
+//help with possible commands
 function help() {
   console.log('hello\tquit\texit');
 }
